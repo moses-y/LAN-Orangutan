@@ -36,15 +36,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
         with:
           python-version: '3.11'
 
       - name: Lint Python
         run: |
-          pip install flake8
-          flake8 scanner/*.py --max-line-length=120 --ignore=E501,W503
+          uv tool install flake8
+          uv tool run flake8 scanner/*.py --max-line-length=120 --ignore=E501,W503
 
       - name: Check shell scripts
         run: |
@@ -69,8 +69,8 @@ jobs:
       - name: Go tests
         run: go test -v ./...
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
         with:
           python-version: '3.11'
 

@@ -1,0 +1,6 @@
+[project]
+name = "lan-orangutan"
+description = "Automated LAN device discovery and management tool for modern networks."
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = []
